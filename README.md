@@ -58,8 +58,8 @@ If you prefer to use your own area code data source:
 ```python
 from area_code_locator import AreaCodeLocator
 
-# Initialize with your area code data file
-locator = AreaCodeLocator("path/to/area-codes.parquet")
+# Use included data (recommended)
+locator = AreaCodeLocator()
 
 # Lookup area code for a location
 area_code = locator.lookup(40.7128, -74.0060)  # New York City
@@ -68,17 +68,20 @@ print(area_code)  # ['212']
 # Get all matching area codes
 all_codes = locator.lookup(34.0522, -118.2437, return_all=True)  # Los Angeles
 print(all_codes)  # ['213', '310', ...]
+
+# Or use custom data
+locator_custom = AreaCodeLocator("path/to/your/area-codes.parquet")
 ```
 
 ## API Reference
 
 ### AreaCodeLocator
 
-#### `__init__(path: str, projected_epsg: int = 5070)`
+#### `__init__(path: Optional[str] = None, projected_epsg: int = 5070)`
 
-Initialize the locator with a Parquet file containing area code polygons.
+Initialize the locator with area code data.
 
-- `path`: Path to the Parquet file
+- `path`: Path to a Parquet file containing area code polygons. If None, uses the included data.
 - `projected_epsg`: EPSG code for projected coordinate system (default: 5070 - NAD83/Conus Albers)
 
 #### `lookup(lat: float, lon: float, return_all: bool = True) -> Union[str, List[str]]`

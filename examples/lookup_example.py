@@ -9,9 +9,9 @@ def main():
     # The area-codes.parquet file is included with the library,
     # so no setup is required!
 
-    # Initialize the locator with the included data file
+    # Initialize the locator (uses included data by default)
     try:
-        locator = AreaCodeLocator("area-codes.parquet")
+        locator = AreaCodeLocator()
     except FileNotFoundError:
         print("Error: area-codes.parquet file not found.")
         print("The data file should be included with the library.")

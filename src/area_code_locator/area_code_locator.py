@@ -2,6 +2,7 @@
 from __future__ import annotations
 from pathlib import Path
 from typing import List, Optional, Tuple, Union, cast
+import importlib.resources
 
 import geopandas as gpd
 from shapely.geometry import Point
@@ -19,13 +20,25 @@ def bbox_of(geom: BaseGeometry) -> BBox:
 
 
 class AreaCodeLocator:
-    def __init__(self, path: str, projected_epsg: int = 5070):
+    def __init__(self, path: Optional[str] = None, projected_epsg: int = 5070):
         """
-        path: .parquet
-        projected_epsg: EPSG in meters for distance/buffer ops (5070 = NAD83 / Conus Albers).
+        Initialize the Area Code Locator.
+
+        Args:
+            path: Path to a Parquet file containing area code data. If None, uses the included data.
+            projected_epsg: EPSG code for projected coordinate system (default: 5070 - NAD83/Conus Albers).
         """
         self._epsg_proj = int(projected_epsg)
-        p = Path(path)
+
+        # Use included data if no path provided
+        if path is None:
+            # Use importlib.resources to access the packaged data file
+            data_files = importlib.resources.files("area_code_locator.data")
+            p = data_files.joinpath("area-codes.parquet")
+            # Convert Traversable to string for geopandas
+            p = str(p)
+        else:
+            p = Path(path)
 
         # Load dataset
         gdf = gpd.read_parquet(p)
