@@ -5,12 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "area-code-locator"
 version = "0.1.0"
-description = "A Python library for locating area codes from latitude and longitude coordinates"
+description = "Reverse-geocode latitude/longitude to NANP (North American) telephone area codes"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.8"
 license = { file = "LICENSE" }
 authors = [{ name = "Area Code Locator Contributors" }]
-keywords = ["geospatial", "area-codes", "telephony", "gis", "geopandas"]
+keywords = ["area-code", "nanp", "north-american-numbering-plan", "reverse-geocoding", "geopandas", "gis", "geospatial", "telephony", "python-package", "coordinates", "latitude-longitude"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
@@ -39,6 +39,9 @@ dev = ["pytest>=7.0.0", "pytest-cov>=4.0.0"]
 Homepage = "https://github.com/Eat-A-Fish/area-code-locator"
 Repository = "https://github.com/Eat-A-Fish/area-code-locator"
 Issues = "https://github.com/Eat-A-Fish/area-code-locator/issues"
+
+[project.scripts]
+area-code-lookup = "area_code_locator.cli:main"
 
 [tool.setuptools]
 license-files = ["LICENSE"]
