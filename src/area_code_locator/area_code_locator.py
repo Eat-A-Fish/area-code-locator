@@ -2,7 +2,10 @@
 from __future__ import annotations
 from pathlib import Path
 from typing import List, Optional, Tuple, Union, cast
-import importlib.resources
+try:
+    from importlib.resources import files
+except ImportError:
+    from importlib_resources import files  # backport for Py3.8 and earlier
 
 import geopandas as gpd
 from shapely.geometry import Point
@@ -33,7 +36,7 @@ class AreaCodeLocator:
         # Use included data if no path provided
         if path is None:
             # Use importlib.resources to access the packaged data file
-            data_files = importlib.resources.files("area_code_locator.data")
+            data_files = files("area_code_locator.data")
             p = data_files.joinpath("area-codes.parquet")
             # Convert Traversable to string for geopandas
             p = str(p)
