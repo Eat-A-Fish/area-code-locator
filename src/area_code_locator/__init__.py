@@ -4,7 +4,7 @@ from typing import List, Union, Optional
 
 from .area_code_locator import AreaCodeLocator
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = ["AreaCodeLocator", "lookup", "batch_lookup"]
 
 # Thread-safe lazy singleton for the locator

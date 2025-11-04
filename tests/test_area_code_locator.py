@@ -6,7 +6,7 @@ class TestAreaCodeLocator:
     def test_import(self):
         """Test that the module can be imported."""
         assert AreaCodeLocator is not None
-        assert __version__ == "0.1.0"
+        assert __version__ == "0.2.0"
 
     def test_locator_initialization_missing_file(self):
         """Test that initialization fails gracefully with missing file."""
