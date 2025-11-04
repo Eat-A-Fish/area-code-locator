@@ -15,7 +15,7 @@ A Python library for locating area codes (NPAs) from latitude and longitude coor
 Install from source:
 
 ```bash
-git clone https://github.com/yourusername/area-code-locator.git
+git clone https://github.com/Eat-A-Fish/area-code-locator.git
 cd area-code-locator
 pip install -e .
 ```

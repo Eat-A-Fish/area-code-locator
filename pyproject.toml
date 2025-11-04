@@ -40,16 +40,12 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/area-code-locator"
-Repository = "https://github.com/yourusername/area-code-locator"
-Issues = "https://github.com/yourusername/area-code-locator/issues"
+Homepage = "https://github.com/Eat-A-Fish/area-code-locator"
+Repository = "https://github.com/Eat-A-Fish/area-code-locator"
+Issues = "https://github.com/Eat-A-Fish/area-code-locator/issues"
 
 [tool.setuptools]
 packages = ["area_code_locator"]
-include-package-data = true
-
-[tool.setuptools.package-data]
-area_code_locator = ["data/*.parquet"]
 
 [tool.setuptools.package-dir]
 "" = "src"
