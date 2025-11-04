@@ -145,13 +145,13 @@ ehthumbs.db
 Thumbs.db
 
 # Data files (area code data can be large)
-*.parquet
-!area-codes.parquet  # But include our main data file
 *.geojson
 *.shp
 *.dbf
 *.shx
 *.prj
+*.parquet
+!area-codes.parquet  # But include our main data file
 
 # Temporary files
 *.tmp

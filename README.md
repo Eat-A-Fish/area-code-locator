@@ -119,5 +119,4 @@ This project uses area code boundary data derived from [nanp-boundaries](https:/
 
 ## License
 
-MIT License - see LICENSE file for details</content>
-<parameter name="filePath">c:\Users\User\Desktop\python-playground\area-code-locator\README.md
+MIT License
